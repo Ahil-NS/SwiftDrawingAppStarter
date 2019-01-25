@@ -11,6 +11,7 @@ import UIKit
 class MainDrawerVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var widthLabel: UILabel!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
@@ -21,6 +22,7 @@ class MainDrawerVC: UIViewController {
     var swiped = false
     var red : CGFloat = 0.0
     var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
     
     var lineWidth: CGFloat = 4.0
     
@@ -73,7 +75,7 @@ class MainDrawerVC: UIViewController {
         
         context?.setLineCap(CGLineCap.round)
         context?.setLineWidth(lineWidth)
-        context?.setStrokeColor(red: red, green: green, blue: 0, alpha: 1)
+        context?.setStrokeColor(red: red, green: green, blue: blue, alpha: 1)
         context?.setBlendMode(CGBlendMode.normal)
         
         context?.strokePath()
@@ -88,15 +90,15 @@ class MainDrawerVC: UIViewController {
     
     
     @IBAction func redTapped(_ sender: Any) {
-        (red,green) = (255,0)
+        (red,green,blue) = (255,0,0)
     }
     
     @IBAction func greenTapped(_ sender: Any) {
-        (red,green) = (0,255)
+        (red,green,blue) = (0,255,0)
     }
     
     @IBAction func whiteEraserTapped(_ sender: Any) {
-         (red,green) = (0,0)
+         (red,green,blue) = (255,255,255)
     }
     @IBAction func increaseLineWidth(_ sender: Any) {
         lineWidth += 1
@@ -128,5 +130,33 @@ class MainDrawerVC: UIViewController {
     @IBAction func resetButtonPressed(_ sender: Any) {
         imageView.image = nil
     }
+    
+//    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+//        if
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let settingVC =  segue.destination as? SettingsVC else{return}
+        settingVC.delegate = self
+        settingVC.brushSize = lineWidth
+        settingVC.red = self.red
+        settingVC.green = self.green
+        settingVC.blue = self.blue
+    }
 }
 
+
+extension MainDrawerVC: settingVCDelegate{
+    func settingVCFinishEditing(settingVC: SettingsVC) {
+        self.lineWidth = settingVC.brushSize
+        self.red = settingVC.red
+        self.green = settingVC.green
+        self.blue = settingVC.blue
+        
+        changeLabel()
+    }
+    
+  
+    
+    
+}
