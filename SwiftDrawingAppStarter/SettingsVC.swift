@@ -20,12 +20,14 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
+    @IBOutlet weak var opacitySlider: UISlider!
     
     @IBOutlet weak var brushSizeLabel: UILabel!
     
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var opacityLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -35,14 +37,21 @@ class SettingsVC: UIViewController {
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
     
+    var opacity: CGFloat = 1.0
     
     var delegate: settingVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        brushSizeSlider.value = Float(brushSize)
         brushSizeLabel.text = String(format: "%.0f", brushSize)
+        brushSizeSlider.value = Float(brushSize)
+        
+        
+        opacityLabel.text = String(format: "%.1f", opacity)
+        
+        opacitySlider.value = Float(opacity)
+        
         
         redSlider.value = Float(red)
         greenSlider.value = Float(green)
@@ -91,6 +100,13 @@ class SettingsVC: UIViewController {
         updatePreview()
     }
     
+    @IBAction func opacitySliderChanged(_ sender: Any) {
+        opacity = CGFloat(opacitySlider.value)
+        opacityLabel.text = String(format: "%.1f", opacity)
+        updatePreview()
+    }
+    
+    
     
     func updatePreview(){
         UIGraphicsBeginImageContext(imageView.frame.size)
@@ -98,7 +114,7 @@ class SettingsVC: UIViewController {
         context?.setLineCap(CGLineCap.round)
         context?.setLineWidth(brushSize)
         
-        context?.setStrokeColor(red: red, green: green, blue: blue, alpha: 1)
+        context?.setStrokeColor(red: red, green: green, blue: blue, alpha: opacity)
         context?.move(to: CGPoint(x: 60, y: 60))
         context?.addLine(to: CGPoint(x: 60, y: 60))
         context?.strokePath()

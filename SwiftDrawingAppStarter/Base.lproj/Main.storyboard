@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HRg-8Y-cxW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oiL-xb-jsb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
@@ -98,12 +101,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="HRg-8Y-cxW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1zr-Hx-HOm"/>
                             <constraint firstItem="oiL-xb-jsb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5Wx-hn-xvi"/>
                             <constraint firstItem="a1Y-gy-nQE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BQO-AS-qYW"/>
                             <constraint firstItem="oiL-xb-jsb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BlR-jy-ld1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a1Y-gy-nQE" secondAttribute="trailing" constant="20" id="EP8-eI-PtJ"/>
+                            <constraint firstItem="HRg-8Y-cxW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rgn-RB-ySm"/>
+                            <constraint firstItem="HRg-8Y-cxW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WA1-8b-qf8"/>
                             <constraint firstItem="JlT-eV-buV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Yza-RO-cxK"/>
                             <constraint firstItem="oiL-xb-jsb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="grW-6H-QV9"/>
+                            <constraint firstItem="HRg-8Y-cxW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h2d-ev-XOM"/>
                             <constraint firstItem="JlT-eV-buV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="nSJ-gI-awl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JlT-eV-buV" secondAttribute="trailing" constant="12" id="uop-VE-SRv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a1Y-gy-nQE" secondAttribute="bottom" constant="20" id="xM4-Kx-ZDk"/>
@@ -115,6 +122,7 @@
                         <outlet property="imageView" destination="oiL-xb-jsb" id="rWS-3t-aIh"/>
                         <outlet property="minusButton" destination="y4J-D6-Xae" id="DBC-I8-UN6"/>
                         <outlet property="plusButton" destination="4G6-Kd-2jO" id="YVH-gM-s5q"/>
+                        <outlet property="secondImageView" destination="HRg-8Y-cxW" id="fUS-gJ-PyR"/>
                         <outlet property="widthLabel" destination="5Gq-ez-eZ9" id="Bhb-HP-27n"/>
                     </connections>
                 </viewController>
@@ -151,10 +159,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Z8-Jd-kyk">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Z8-Jd-kyk">
                                         <rect key="frame" x="6" y="102.5" width="363" height="25"/>
                                         <connections>
                                             <action selector="brushOpacityChanged:" destination="xdV-ME-eJ3" eventType="valueChanged" id="cdn-kx-hJH"/>
+                                            <action selector="opacitySliderChanged:" destination="xdV-ME-eJ3" eventType="valueChanged" id="DeN-do-Pjk"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeB-By-9aQ">
@@ -251,6 +260,8 @@
                         <outlet property="greenLabel" destination="E4I-El-qnP" id="UH7-A5-f5J"/>
                         <outlet property="greenSlider" destination="c8O-aQ-pGu" id="qIK-v4-xPK"/>
                         <outlet property="imageView" destination="sad-J1-cbT" id="40P-Qv-VIO"/>
+                        <outlet property="opacityLabel" destination="bu7-h2-Wnd" id="M14-jc-6Cj"/>
+                        <outlet property="opacitySlider" destination="6Z8-Jd-kyk" id="Uaw-cj-mVz"/>
                         <outlet property="redLabel" destination="NPw-OL-uSg" id="vRo-YW-wJj"/>
                         <outlet property="redSlider" destination="1B9-Kj-Zau" id="bFc-gt-DEc"/>
                     </connections>
