@@ -11,15 +11,24 @@ import UIKit
 class MainDrawerVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var widthLabel: UILabel!
+    @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
     
     //he point with location (0,0).
     var lastPoint = CGPoint.zero
     
     var swiped = false
+    var red : CGFloat = 0.0
+    var green: CGFloat = 0.0
+    
+    var lineWidth: CGFloat = 4.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        changeLabel()
     }
 
     //one or more new touches occurred in a view or window.
@@ -63,8 +72,8 @@ class MainDrawerVC: UIViewController {
         context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
         
         context?.setLineCap(CGLineCap.round)
-        context?.setLineWidth(5.0)
-        context?.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1)
+        context?.setLineWidth(lineWidth)
+        context?.setStrokeColor(red: red, green: green, blue: 0, alpha: 1)
         context?.setBlendMode(CGBlendMode.normal)
         
         context?.strokePath()
@@ -76,6 +85,48 @@ class MainDrawerVC: UIViewController {
         
         
     }
-
+    
+    
+    @IBAction func redTapped(_ sender: Any) {
+        (red,green) = (255,0)
+    }
+    
+    @IBAction func greenTapped(_ sender: Any) {
+        (red,green) = (0,255)
+    }
+    
+    @IBAction func whiteEraserTapped(_ sender: Any) {
+         (red,green) = (0,0)
+    }
+    @IBAction func increaseLineWidth(_ sender: Any) {
+        lineWidth += 1
+        changeLabel()
+    }
+    @IBAction func reduceLineWidth(_ sender: Any) {
+        lineWidth -= 1
+        changeLabel()
+    }
+    
+    func changeLabel(){
+        self.widthLabel.text = String(format: "%.0f", lineWidth)
+        
+        if(lineWidth == 20){
+            plusButton.isEnabled = false
+            plusButton.alpha = 0.5
+        }
+        else if(lineWidth == 1){
+            minusButton.isEnabled = false
+            minusButton.alpha = 0.5
+        }
+        else{
+            plusButton.isEnabled = true
+            minusButton.isEnabled = true
+            plusButton.alpha = 1
+            minusButton.alpha = 1
+        }
+    }
+    @IBAction func resetButtonPressed(_ sender: Any) {
+        imageView.image = nil
+    }
 }
 

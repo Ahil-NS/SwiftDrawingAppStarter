@@ -21,18 +21,94 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oiL-xb-jsb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="a1Y-gy-nQE">
+                                <rect key="frame" x="20" y="607" width="335" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ymw-8j-ySH">
+                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="40"/>
+                                        <state key="normal" title="Button" image="redSplat"/>
+                                        <connections>
+                                            <action selector="redTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4MG-xB-aoy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8P-gi-dr1">
+                                        <rect key="frame" x="58.5" y="0.0" width="43" height="40"/>
+                                        <state key="normal" image="greenSplat"/>
+                                        <connections>
+                                            <action selector="greenTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SWE-d2-S5x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8V-VV-JTr">
+                                        <rect key="frame" x="116.5" y="0.0" width="43.5" height="40"/>
+                                        <state key="normal" image="erase"/>
+                                        <connections>
+                                            <action selector="whiteEraserTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EOA-ud-eGp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4J-D6-Xae">
+                                        <rect key="frame" x="175" y="0.0" width="43.5" height="40"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="-"/>
+                                        <connections>
+                                            <action selector="reduceLineWidth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xde-lm-Sbc"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Gq-ez-eZ9">
+                                        <rect key="frame" x="233.5" y="0.0" width="43" height="40"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G6-Kd-2jO">
+                                        <rect key="frame" x="291.5" y="0.0" width="43.5" height="40"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="increaseLineWidth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bE2-lr-tBH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Kp8-PL-rD4"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JlT-eV-buV">
+                                <rect key="frame" x="12" y="32" width="351" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="267-FW-RTe">
+                                        <rect key="frame" x="0.0" y="0.0" width="351" height="30"/>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZh-PY-Yru"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="y52-qK-080"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oiL-xb-jsb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5Wx-hn-xvi"/>
+                            <constraint firstItem="a1Y-gy-nQE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BQO-AS-qYW"/>
                             <constraint firstItem="oiL-xb-jsb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BlR-jy-ld1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a1Y-gy-nQE" secondAttribute="trailing" constant="20" id="EP8-eI-PtJ"/>
+                            <constraint firstItem="JlT-eV-buV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Yza-RO-cxK"/>
                             <constraint firstItem="oiL-xb-jsb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="grW-6H-QV9"/>
+                            <constraint firstItem="JlT-eV-buV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="nSJ-gI-awl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JlT-eV-buV" secondAttribute="trailing" constant="12" id="uop-VE-SRv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a1Y-gy-nQE" secondAttribute="bottom" constant="20" id="xM4-Kx-ZDk"/>
                             <constraint firstItem="oiL-xb-jsb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zMF-8w-tiW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="oiL-xb-jsb" id="rWS-3t-aIh"/>
+                        <outlet property="minusButton" destination="y4J-D6-Xae" id="DBC-I8-UN6"/>
+                        <outlet property="plusButton" destination="4G6-Kd-2jO" id="YVH-gM-s5q"/>
+                        <outlet property="widthLabel" destination="5Gq-ez-eZ9" id="Bhb-HP-27n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -40,4 +116,9 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="erase" width="200" height="200"/>
+        <image name="greenSplat" width="200" height="200"/>
+        <image name="redSplat" width="200" height="200"/>
+    </resources>
 </document>
