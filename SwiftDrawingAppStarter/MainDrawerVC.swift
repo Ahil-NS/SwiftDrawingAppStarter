@@ -16,6 +16,11 @@ class MainDrawerVC: UIViewController {
     @IBOutlet weak var widthLabel: UILabel!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var hideButton: UIButton!
+    @IBOutlet weak var bottomStackView: UIStackView!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     //he point with location (0,0).
     var lastPoint = CGPoint.zero
@@ -29,6 +34,7 @@ class MainDrawerVC: UIViewController {
     
     var lineWidth: CGFloat = 4.0
     
+    var hideState = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,6 +175,30 @@ class MainDrawerVC: UIViewController {
         //view controller that you use to offer standard services from your app.
         let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         present(activity, animated: true, completion: nil)
+    }
+    
+    @IBAction func hideRevalButtonTapped(_ sender: Any) {
+        
+        if(hideState){
+            bottomStackView.isHidden = false
+            resetButton.isHidden = false
+            settingButton.isHidden = false
+            saveButton.isHidden = false
+            hideButton.setTitle("Hide", for: .normal)
+            hideButton.alpha = 1
+            hideState = false
+        }
+        else{
+            bottomStackView.isHidden = true
+            resetButton.isHidden = true
+            settingButton.isHidden = true
+            saveButton.isHidden = true
+            hideButton.setTitle("Reveal", for: .normal)
+            hideButton.alpha = 0.3
+            hideState = true
+            
+        }
+        
     }
     
 }

@@ -79,22 +79,29 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JlT-eV-buV">
                                 <rect key="frame" x="12" y="32" width="351" height="30"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nK-Hl-gY4">
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                                        <state key="normal" title="Hide"/>
+                                        <connections>
+                                            <action selector="hideRevalButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YCE-dD-zv5"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="267-FW-RTe">
-                                        <rect key="frame" x="0.0" y="0.0" width="117" height="30"/>
+                                        <rect key="frame" x="88" y="0.0" width="87.5" height="30"/>
                                         <state key="normal" title="Reset"/>
                                         <connections>
                                             <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZh-PY-Yru"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-Lh-YTS">
-                                        <rect key="frame" x="117" y="0.0" width="117" height="30"/>
+                                        <rect key="frame" x="175.5" y="0.0" width="88" height="30"/>
                                         <state key="normal" title="Setting"/>
                                         <connections>
                                             <segue destination="xdV-ME-eJ3" kind="show" id="VQz-8n-n0v"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN7-Pn-uZJ">
-                                        <rect key="frame" x="234" y="0.0" width="117" height="30"/>
+                                        <rect key="frame" x="263.5" y="0.0" width="87.5" height="30"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="savePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a1K-kc-Kb8"/>
@@ -126,10 +133,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomStackView" destination="a1Y-gy-nQE" id="cHF-TC-Ab7"/>
+                        <outlet property="hideButton" destination="5nK-Hl-gY4" id="FSt-UZ-Eja"/>
                         <outlet property="imageView" destination="oiL-xb-jsb" id="rWS-3t-aIh"/>
                         <outlet property="minusButton" destination="y4J-D6-Xae" id="DBC-I8-UN6"/>
                         <outlet property="plusButton" destination="4G6-Kd-2jO" id="YVH-gM-s5q"/>
+                        <outlet property="resetButton" destination="267-FW-RTe" id="0No-7z-8o3"/>
+                        <outlet property="saveButton" destination="qN7-Pn-uZJ" id="4jw-Ec-ukf"/>
                         <outlet property="secondImageView" destination="HRg-8Y-cxW" id="fUS-gJ-PyR"/>
+                        <outlet property="settingButton" destination="Bmz-Lh-YTS" id="e9n-aA-p3R"/>
                         <outlet property="widthLabel" destination="5Gq-ez-eZ9" id="Bhb-HP-27n"/>
                     </connections>
                 </viewController>
