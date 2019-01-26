@@ -80,17 +80,24 @@
                                 <rect key="frame" x="12" y="32" width="351" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="267-FW-RTe">
-                                        <rect key="frame" x="0.0" y="0.0" width="175.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="30"/>
                                         <state key="normal" title="Reset"/>
                                         <connections>
                                             <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZh-PY-Yru"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-Lh-YTS">
-                                        <rect key="frame" x="175.5" y="0.0" width="175.5" height="30"/>
+                                        <rect key="frame" x="117" y="0.0" width="117" height="30"/>
                                         <state key="normal" title="Setting"/>
                                         <connections>
                                             <segue destination="xdV-ME-eJ3" kind="show" id="VQz-8n-n0v"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN7-Pn-uZJ">
+                                        <rect key="frame" x="234" y="0.0" width="117" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="savePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a1K-kc-Kb8"/>
                                         </connections>
                                     </button>
                                 </subviews>

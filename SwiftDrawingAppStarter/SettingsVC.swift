@@ -65,11 +65,11 @@ class SettingsVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
           updatePreview()
     }
+    
     @IBAction func brushSizeChanged(_ sender: Any) {
         brushSize = CGFloat(brushSizeSlider.value)
         brushSizeLabel.text = String(format: "%.0f", brushSize)
         updatePreview()
-        
     }
     
     
@@ -105,8 +105,6 @@ class SettingsVC: UIViewController {
         opacityLabel.text = String(format: "%.1f", opacity)
         updatePreview()
     }
-    
-    
     
     func updatePreview(){
         UIGraphicsBeginImageContext(imageView.frame.size)

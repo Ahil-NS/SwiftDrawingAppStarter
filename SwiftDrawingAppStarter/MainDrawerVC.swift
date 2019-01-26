@@ -57,6 +57,7 @@ class MainDrawerVC: UIViewController {
         }
     }
     // one or more fingers are raised from a view or window.
+    //Get first imageview and second imageview and combined them both here
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !swiped{
             drawLine(fromPoint: lastPoint, toPoint: lastPoint)
@@ -74,6 +75,7 @@ class MainDrawerVC: UIViewController {
         
     }
     
+    //Draw in second imageview after finishing it place it in to first imageview
     func drawLine(fromPoint: CGPoint, toPoint: CGPoint){
         
         //Creates a bitmap-based graphics context and makes it the current context.
@@ -155,6 +157,20 @@ class MainDrawerVC: UIViewController {
         settingVC.blue = self.blue
         settingVC.opacity = self.opacity 
     }
+    
+    @IBAction func savePhoto(_ sender: Any) {
+        
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        imageView.image?.draw(in: CGRect(x: 0, y: 0, width: imageView.frame.size.width, height: imageView.frame.size.height))
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //view controller that you use to offer standard services from your app.
+        let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        present(activity, animated: true, completion: nil)
+    }
+    
 }
 
 
